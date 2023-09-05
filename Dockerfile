@@ -16,5 +16,6 @@ RUN echo "#!/bin/sh" > /usr/local/bin/start && chmod +x /usr/local/bin/start
 COPY migrate.sh /app/migrate.sh
 COPY --from=build /project/build/libs/app.jar .
 COPY ./scripts ./scripts
+RUN chmod +x ./scripts/run_prod.sh
 EXPOSE 8080
 CMD [ "/app/scripts/run_prod.sh" ]
