@@ -1,110 +1,66 @@
-# Getting started with Java and Spring-boot
+# Getting started with Guidelines
 
-![](https://github.com/flavours/documentation/workflows/CI/badge.svg)
-
-<p align="center">
-  <img src="https://utils.flavours.dev/presskit/spring_boot_flavour_glossy.svg" width="100">
-</p>
-
-A [Flavours](https://www.flavours.dev) project template for Java/Spring Boot
+[![Deploy at Divio
+badge](https://img.shields.io/badge/deploy%20at%20divio-DFFF67)](https://control.divio.com/new?template_url=https://github.com/divio/getting-started-with-java-spring-boot/archive/refs/heads/main.zip)
 
 
-## Quick start
+This is a template project to bootstrap an Java Spring Boot application.
+
+
+## Quick Start with Divio Cloud
+
+### Create a free Divio account
+Create a free [Divio account](https://control.divio.com/).
+
+### Deploy your app in Divio Cloud
+- Click the `Deploy at Divio` button above and provide the information requested by the app creation wizard (eg. app name and app settings)
+
+- In Divio Control Panel dashboard, Add `PostgreSQL` database under Services section.
+
+- Deploy an environment; test or live. Open the Env URL in your browser.
+
+For more details about Divio system, read [Divio documentation](https://docs.divio.com/introduction/)
+
+
+## Setup your local development environment with Divio CLI
+
+Please follow our simple guidelines for [Divio CLI installation](https://docs.divio.com/introduction/01-installation/) and [setup local development](https://docs.divio.com/introduction/01-installation/#tutorial-installation&gsc.tab=0)
+
+
+## Setup your local development environment without Divio CLI
+
+### Install Docker
+
+This project uses Docker and docker-compose which you can install from the [offical Docker website](https://docs.docker.com/get-docker/).
 
 ### Clone the repository
 
 ```
-git clone git@github.com:flavours/getting-started-with-spring-boot.git
+git clone https://github.com/divio/getting-started-with-java-spring-boot.git
 ```
 
 ### Build the project
 
+Let's build the docker image of the project.
 ```
-cd getting-started-with-spring-boot
+cd getting-started-with-java-spring-boot
 docker-compose build
 ```
-
-The project includes a ``web`` service, running the Java code, and a ``db`` service, running a Postgres database.
-See the ``docker-compose.yml`` file for details.
 
 ### Run the project
 
 ```
 docker-compose up
-````
-
-Containers for both services will be launched. The project can be reached at http://localhost:8000.
-
-Hot-reloading is enabled (i.e. changes to the Java code in the project will cause the application to restart so that they 
-can be used.)
-
-
-## How to
-
-### Run the local project on a different port
-
-The container runs a Tomcat server listening on port 8080. The ``docker-compose.yml`` file is set up to
-expose this port to the Docker host at port 8000, but you are free to change it as you wish - edit the ``ports`` directive:
-
-```
-services:
-  web:
-    [...]
-    ports: 
-      - 8000:8080
 ```
 
-### Contribute to the project
-
-See the [contribution guide](https://github.com/flavours/getting-started-with-spring-boot/blob/master/CONTRIBUTING.md).
+This command will start the `web` and `db` services. You can reach the web application at [http://localhost:8000]().
 
 
-### How to prepare a new release of the getting-started project###
-To create a new release of the getting started project, you have to updated the default welcome screen with the latest version.
+## How to develop
 
-```
-docker run --rm --volume "`pwd`:/data" --user `id -u`:`id -g` pandoc/core:2.9.2 -s --css https://utils.flavours.dev/baseproject/1.0/style.css -o /data/src/main/resources/templates/index.html /data/README.md
-```
-
-Please also update the changelog accordingly and tag a new release in github.
+Follow the official [Java Spring Boot documentation](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/)
 
 
-### External how-to guides
+## Contribute to the project
 
-* [Handling Form Submission](https://spring.io/guides/gs/handling-form-submission/)
-* [Accessing Relational Data using JDBC with Spring](https://spring.io/guides/gs/relational-data-access/)
-* [Managing Transactions](https://spring.io/guides/gs/managing-transactions/)
-* [Accessing data with MySQL](https://spring.io/guides/gs/accessing-data-mysql/)
-* [Accessing Data with JPA](https://spring.io/guides/gs/accessing-data-jpa/)
-* [Securing a Web Application](https://spring.io/guides/gs/securing-web/)
-* [Spring Boot and OAuth2](https://spring.io/guides/tutorials/spring-boot-oauth2/)
-* [Authenticating a User with LDAP](https://spring.io/guides/gs/authenticating-ldap/)
-* [Building a RESTful Web Service](https://spring.io/guides/gs/rest-service/)
-* [Serving Web Content with Spring MVC](https://spring.io/guides/gs/serving-web-content/)
-* [Building REST services with Spring](https://spring.io/guides/tutorials/bookmarks/)
-
-
-## Reference
-
-This project template uses:
-
-* Java 11
-* [FlywayDB](https://flywaydb.org/) for database migrations
-* [Gradle](https://gradle.org/) to build and, in dev-mode, run the application with hot reload
-* [Spring JPA](https://docs.spring.io/spring-data/jpa/docs/current/reference/html/) for database access
-* [Spring Web](https://spring.io/guides/gs/serving-web-content/) to serve HTTP requests
-* [Thymeleaf](https://www.thymeleaf.org/doc/tutorials/3.0/thymeleafspring.html) for HTML-templating
-
-
-### External reference
-
-* [Official Gradle documentation](https://docs.gradle.org)
-* [Gradle Build Scans – insights for your project's build](https://scans.gradle.com#gradle)
-* [Spring Boot Gradle Plugin Reference Guide](https://docs.spring.io/spring-boot/docs/2.2.5.RELEASE/gradle-plugin/reference/html/)
-* [Spring Boot DevTools](https://docs.spring.io/spring-boot/docs/2.2.5.RELEASE/reference/htmlsingle/#using-boot-devtools)
-* [Thymeleaf](https://docs.spring.io/spring-boot/docs/2.2.5.RELEASE/reference/htmlsingle/#boot-features-spring-mvc-template-engines)
-* [JDBC API](https://docs.spring.io/spring-boot/docs/2.2.5.RELEASE/reference/htmlsingle/#boot-features-sql)
-* [Flyway Migration](https://docs.spring.io/spring-boot/docs/2.2.5.RELEASE/reference/htmlsingle/#howto-execute-flyway-database-migrations-on-startup)
-* [Spring Data JPA](https://docs.spring.io/spring-boot/docs/2.2.5.RELEASE/reference/htmlsingle/#boot-features-jpa-and-spring-data)
-* [Spring Security](https://docs.spring.io/spring-boot/docs/2.2.5.RELEASE/reference/htmlsingle/#boot-features-security)
-* [Spring Web](https://docs.spring.io/spring-boot/docs/2.2.5.RELEASE/reference/htmlsingle/#boot-features-developing-web-applications)
+See the [contribution guide](./CONTRIBUTING.md).

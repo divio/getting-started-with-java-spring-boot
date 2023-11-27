@@ -8,7 +8,6 @@ We will not tolerate abuse or harassment of any kind.
 In the event of a concern about behaviour, please contact the maintainers of the project:
 
 * Dennis Schwertel <dennis.swchwertel@divio.com>
-* Daniele Procida <daniele.procida@divio.com>
 
 Reports will be taken seriously and treated in confidence. If necessary, the maintainers will act to exclude
 individuals from participating in this and other projects.
