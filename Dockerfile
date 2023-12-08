@@ -5,7 +5,6 @@ RUN chmod +x ./gradlew
 COPY ./gradle ./gradle
 RUN ./gradlew --no-daemon --version --quiet # Download gradle binaries
 COPY build.gradle settings.gradle app.flavour* ./
-# RUN ./gradlew --no-daemon --quiet resolveDependencies # TODO
 COPY ./.flavour ./.flavour
 COPY ./src ./src
 RUN ./gradlew --no-daemon --quiet build
