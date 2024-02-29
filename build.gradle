@@ -1,41 +1,25 @@
 plugins {
-    id 'com.divio.fam.gradle.plugin' version '0.1.1'
-    id 'org.springframework.boot' version '2.2.5.RELEASE'
-    id 'io.spring.dependency-management' version '1.0.9.RELEASE'
-    id 'java'
+	id 'java'
+	id 'org.springframework.boot' version '3.2.3'
+	id 'io.spring.dependency-management' version '1.1.4'
 }
 
 group = 'com.example'
-sourceCompatibility = '11'
+version = '0.0.1-SNAPSHOT'
 
-configurations {
-    developmentOnly
-    runtimeClasspath {
-        extendsFrom developmentOnly
-    }
+java {
+	sourceCompatibility = '21'
 }
 
 repositories {
-    mavenCentral()
+	mavenCentral()
 }
 
 dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-    implementation 'org.springframework.boot:spring-boot-starter-jdbc'
-    implementation 'org.springframework.boot:spring-boot-starter-security'
-    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
-    implementation 'org.springframework.boot:spring-boot-starter-web'
-    implementation 'org.flywaydb:flyway-core'
-    developmentOnly 'org.springframework.boot:spring-boot-devtools'
-    runtimeOnly 'mysql:mysql-connector-java'
-    runtimeOnly 'org.postgresql:postgresql'
-    testImplementation('org.springframework.boot:spring-boot-starter-test') {
-        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
-    }
-    testImplementation 'org.springframework.security:spring-security-test'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
-test {
-    useJUnitPlatform()
+tasks.named('test') {
+	useJUnitPlatform()
 }
-
